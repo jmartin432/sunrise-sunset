@@ -1,8 +1,11 @@
 <template>
   <div id="inputs">
     <div id="text">
+<!--      <label for="latitude">Latitude:</label>-->
       <input id="latitude" type="text" v-model="latitude" @change="validateInputs">
+<!--      <label for="longitude">Longitude:</label>-->
       <input id="longitude" type="text" v-model="longitude" @change="validateInputs">
+<!--      <label for="date">Date:</label>-->
       <input id="date" type="date" v-model="dateString" @change="validateInputs">
       <button id="submit" v-on:click="handleSubmit" :disabled="!validInput">Submit</button>
     </div>
@@ -150,6 +153,9 @@ export default {
   display: inline-block;
   height: 300px;
   width: 300px;
+}
+label {
+  text-align: right;
 }
 input {
   display: block

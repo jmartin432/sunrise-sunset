@@ -46,6 +46,7 @@ export default {
 ul {
   list-style-type: none;
   padding: 0px 0px 0px 10px;
+  text-align: left;
 }
 li{
   padding: 5px 0px 5px 0px;
