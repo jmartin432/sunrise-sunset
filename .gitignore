@@ -16,5 +16,5 @@ selenium-debug.log
 *.njsproj
 *.sln
 
-secrets.json
+src/secrets.json
 /scripts/

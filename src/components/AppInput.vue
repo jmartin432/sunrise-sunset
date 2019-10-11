@@ -17,11 +17,9 @@ import googleMaps from 'google-maps'
 
 const sunriseUrl = 'https://api.sunrise-sunset.org/json'
 const mapIcon = require('../assets/unicorn-16x16.png')
-const secrets = require('../../secrets.json')
-// const googleMapsKey = process.env.MAPS_API_KEY
-// googleMaps.KEY = googleMapsKey
-const googleMapsKey = secrets.mapsApiKey
-googleMaps.KEY = googleMapsKey
+const secrets = require('../secrets.json')
+console.log('ENV: ' + JSON.stringify(process.env))
+googleMaps.KEY = (process.env.NODE_ENV === 'development') ? secrets.dev.mapsApiKey : secrets.prod.mapsApiKey
 
 function getDateString (date) {
   let year = date.getFullYear()
