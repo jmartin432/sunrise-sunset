@@ -1,30 +1,35 @@
-# sunrise-sunset
+# Sunrise Sunset App
 
-> A Vue.js project
+This is a Vue.js app that takes user input for three variables: latitude, 
+longitude and date. These are submitted to the sunrise-sunset.org API 
+which returns a list of sunrise and sunset times for that date and location. 
 
-## Build Setup
+Users can either enter the latitude and longitude manually or click a 
+location on the embedded map.
 
-``` bash
-# install dependencies
-npm install
+Clicking the map will populate the input fields with the latitude and 
+longitude.
 
-# serve with hot reload at localhost:8080
-npm run dev
+Clicking the 'submit' button will recenter the map and call the 
+[sunrise-sunset.org](https://sunrise-sunset.org/api) API
 
-# build for production with minification
-npm run build
+The response from the sunrise-sunset API returns the following items:
 
-# build for production and view the bundle analyzer report
-npm run build --report
++ sunrise
++ sunset
++ solar noon
++ day length
++ civil twilight begin
++ civil twilight end
++ nautical twilight begin
++ nautical twilight end
++ astronomical twilight begin
++ astronomical twilight end
 
-# run unit tests
-npm run unit
+These values are displayed as a list on the right and as a graphic in the middle. 
+The red line represents solar noon and the color gradient represents the various stages of twilight.
 
-# run e2e tests
-npm run e2e
+For more information about the different twilights, click [here](https://en.wikipedia.org/wiki/Twilight). 
 
-# run all tests
-npm test
-```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
