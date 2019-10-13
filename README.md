@@ -29,7 +29,7 @@ The response from the sunrise-sunset API returns the following items:
 These values are displayed as a list on the right and as a graphic in the middle. 
 The red line represents solar noon and the color gradient represents the various stages of twilight.
 
-For more information about the different twilights, click [here](https://en.wikipedia.org/wiki/Twilight). 
+For more information about the different stages of twilight, click [here](https://en.wikipedia.org/wiki/Twilight). 
 
 
 
