@@ -18,7 +18,7 @@ export default {
   },
   computed: {
     angles: function () {
-      console.log('computeAngels:' + JSON.stringify(this.dataStore.results))
+      console.log('computeAngles:' + JSON.stringify(this.dataStore.results))
       let r = this.dataStore.results
       let a = {}
       for (let item in r) {
