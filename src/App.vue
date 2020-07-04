@@ -1,20 +1,29 @@
 <template>
   <div id="app">
-    <div id="intro">
-      <ul>
-        <li>Pick a date with the date picker.</li>
-        <li>Enter a latitude and longitude manually or by clicking on the map. The map will recenter to manual entries
-          after 'submit' is clicked. Clicking the map will also populate the latitude and longitude inputs.</li>
-        <li>Results from <a href="https://sunrise-sunset.org/api">sunrise-sunset.org</a> will be displayed in the far
-          right and the middle graphic will update with solar noon as the red line and a color gradient corresponding to the
-          <a href="https://en.wikipedia.org/wiki/Twilight">civil, nautical, and astronomical twilights</a>.</li>
-        <li>All time are currently in UTC.</li>
-      </ul>
+<!--    <div id="intro">-->
+<!--      <ul>-->
+<!--        <li>Pick a date with the date picker.</li>-->
+<!--        <li>Enter a latitude and longitude manually or by clicking on the map. The map will recenter to manual entries-->
+<!--          after 'submit' is clicked. Clicking the map will also populate the latitude and longitude inputs.</li>-->
+<!--        <li>Results from <a href="https://sunrise-sunset.org/api">sunrise-sunset.org</a> will be displayed in the far-->
+<!--          right and the middle graphic will update with solar noon as the red line and a color gradient corresponding to the-->
+<!--          <a href="https://en.wikipedia.org/wiki/Twilight">civil, nautical, and astronomical twilights</a>.</li>-->
+<!--        <li>All time are currently in UTC.</li>-->
+<!--      </ul>-->
+<!--    </div>-->
+    <div id='container'>
+      <div id="input">
+        <AppInput>Input</AppInput>
+      </div>
+      <div id="canvas">
+        <AppCanvas>Canvas</AppCanvas>
+      </div>
+      <div id="results">
+        <AppResults>Results</AppResults>
+      </div>
     </div>
-    <h1>Sunrise Sunset Times</h1>
-    <AppInput>Input</AppInput>
-    <AppCanvas>Canvas</AppCanvas>
-    <AppResults>Results</AppResults>
+    <AppMap>Map</AppMap>
+
 <!--    <router-view/>-->
   </div>
 </template>
@@ -23,10 +32,11 @@
 import AppInput from './components/AppInput'
 import AppCanvas from './components/AppCanvas'
 import AppResults from './components/AppResults'
+import AppMap from './components/AppMap'
 
 export default {
   name: 'App',
-  components: {AppCanvas, AppInput, AppResults}
+  components: {AppMap, AppCanvas, AppInput, AppResults}
 }
 </script>
 
@@ -37,8 +47,14 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
+
+#container {
+  z-index: 100;
+  border : 1px solid red;
+  position: absolute;
+}
+
 ul {
   padding: 0px 0px 0px 30px;
   text-align: left;

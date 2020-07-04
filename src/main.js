@@ -8,6 +8,7 @@ Vue.config.productionTip = false
 Vue.component('AppInput')
 Vue.component('AppResults')
 Vue.component('AppCanvas')
+Vue.component('AppMap')
 
 new Vue({ // eslint-disable-line no-new
   el: '#app',
