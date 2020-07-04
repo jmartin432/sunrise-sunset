@@ -57,6 +57,21 @@ export default {
     }
   },
   methods: {
+    formatResults (results) {
+      console.log('R: ', results)
+      let formatted = {}
+      for (let key in results) {
+        let newKey = key.replace(/_/g, ' ')
+        let splitKey = newKey.split(' ')
+        for (let i = 0; i < splitKey.length; i++) {
+          splitKey[i] = splitKey[i][0].toUpperCase() + splitKey[i].substr(1)
+        }
+        newKey = splitKey.join(' ')
+        formatted[newKey] = results[key]
+      }
+      console.log('F:', formatted)
+      return formatted
+    },
     handleSubmit: function () {
       jQuery.ajax({
         method: 'GET',
@@ -72,6 +87,7 @@ export default {
         }
       }).done((response) => {
         console.log('done ' + JSON.stringify(response))
+        store.setFormattedResults(this.formatResults(response.results))
         store.setResults(response.results)
       })
       store.setPosition(this.position)
@@ -109,6 +125,7 @@ label {
   text-align: right;
 }
 input {
-  display: block
+  display: block;
+  margin: 5px 5px 5px 5px;
 }
 </style>

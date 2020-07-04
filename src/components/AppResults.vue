@@ -1,7 +1,7 @@
 <template>
     <div id="results">
       <ul>
-        <li v-for="(key, value) in results" v-bind:key="key.id">
+        <li v-for="(key, value) in resultsFormatted" v-bind:key="key.id">
           {{value}}: {{ key }}
         </li>
       </ul>
@@ -19,8 +19,8 @@ export default {
     }
   },
   computed: {
-    results: function () {
-      return this.dataStore.results
+    resultsFormatted: function () {
+      return this.dataStore.formattedResults
     }
   },
   watch: {
