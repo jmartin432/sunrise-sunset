@@ -25,7 +25,7 @@ export default {
     dataStore: {
       deep: true,
       handler (val) {
-        this.appMap.setCenter(this.mapCenter)
+        // this.appMap.setCenter(this.mapCenter)
         this.mapMarker.setPosition(this.mapCenter)
       }
     }
