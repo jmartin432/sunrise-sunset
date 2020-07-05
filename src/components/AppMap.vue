@@ -25,7 +25,6 @@ export default {
     dataStore: {
       deep: true,
       handler (val) {
-        console.log('Map Store Watch: ' + JSON.stringify(val))
         this.appMap.setCenter(this.mapCenter)
         this.mapMarker.setPosition(this.mapCenter)
       }
@@ -41,6 +40,8 @@ export default {
     longitudeFloat: function () {
       return parseFloat(this.dataStore.latLng.lng)
     }
+  },
+  methods: {
   },
   mounted () {
     loader.load().then((google) => {
@@ -79,14 +80,11 @@ export default {
 
 <style scoped>
 #map {
-  margin: 0px 0px 0px 0px;
-  border-radius: 5px;
-  border : 1px solid red;
+  margin: 0px;
   /*display: inline-block;*/
   width: 100vw;
   height: 100%;
   position: absolute;
-  margin: 0px 0px 0px 0px;
   z-index: 0
 }
 </style>

@@ -1,21 +1,26 @@
 <template>
-  <div id="inputs">
-    <div id="text">
-<!--      <label for="latitude">Latitude:</label>-->
+  <div id="input">
+    <div id="fields">
       <input id="latitude" type="text" v-model="lat" @change="validateInputs">
-<!--      <label for="longitude">Longitude:</label>-->
       <input id="longitude" type="text" v-model="lng" @change="validateInputs">
-<!--      <label for="date">Date:</label>-->
       <input id="date" type="date" v-model="date" @change="validateInputs">
       <button id="submit" v-on:click="handleSubmit" :disabled="!validInput">Submit</button>
     </div>
-<!--    <div id="map"></div>-->
+    <div id="input-tooltip" class="tooltip">
+      <ul>
+        <li>Enter a latitude and longitude manually or by clicking on the map.</li>
+        <li>Pick a date with the date picker.</li>
+        <li>Results from <a href="https://sunrise-sunset.org/api">sunrise-sunset.org</a>
+<!--        <li>Info on <a href="https://en.wikipedia.org/wiki/Twilight">civil, nautical, and astronomical twilights</a>.</li>-->
+        <li>All time are currently in UTC.</li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
-import jQuery from 'jquery'
 import store from '../store'
+import jQuery from 'jquery'
 
 const sunriseUrl = 'https://api.sunrise-sunset.org/json'
 
@@ -41,7 +46,6 @@ export default {
     dataStore: {
       deep: true,
       handler (val) {
-        console.log('Input Store watch: ' + JSON.stringify(val))
         this.lat = store.state.latLng.lat
         this.lng = store.state.latLng.lng
       }
@@ -58,7 +62,6 @@ export default {
   },
   methods: {
     formatResults (results) {
-      console.log('R: ', results)
       let formatted = {}
       for (let key in results) {
         let newKey = key.replace(/_/g, ' ')
@@ -69,7 +72,6 @@ export default {
         newKey = splitKey.join(' ')
         formatted[newKey] = results[key]
       }
-      console.log('F:', formatted)
       return formatted
     },
     handleSubmit: function () {
@@ -110,16 +112,46 @@ export default {
       console.log(this.latLngPattern.test(this.lat) && this.latLngPattern.test(this.lng) && this.datePattern.test(this.date))
       return this.latLngPattern.test(this.lat) && this.latLngPattern.test(this.lng) && this.datePattern.test(this.date)
     }
+  },
+  mounted: function () {
+    this.handleSubmit()
   }
 }
 </script>
 
 <style scoped>
-#inputs{
+#input{
   display: inline-block;
   border-radius: 5px;
   border : 1px solid black;
   margin: 20px;
+  background-color: rgba(30, 30, 30, 0.8);
+}
+#fields{
+  margin: 10px;
+}
+#input .tooltip {
+  visibility: hidden;
+  color: #fff;
+  text-align: left;
+  padding: 5px 0;
+  border-radius: 6px;
+  background-color: rgba(30, 30, 30, 0.8);
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  width: 700px;
+  top: 20px;
+  left: 90%;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 1s;
+}
+#input:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
 }
 label {
   text-align: right;

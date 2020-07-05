@@ -7,17 +7,12 @@ import router from './router'
 Vue.config.productionTip = false
 Vue.component('AppInput')
 Vue.component('AppResults')
-Vue.component('AppCanvas')
+// Vue.component('AppCanvas')
 Vue.component('AppMap')
 
 new Vue({ // eslint-disable-line no-new
   el: '#app',
   router,
   components: { App },
-  template: '<App/>',
-  watch: {
-    date: function () {
-      console.log('watch date')
-    }
-  }
+  template: '<App/>'
 })
