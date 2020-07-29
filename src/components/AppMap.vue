@@ -6,10 +6,8 @@
 import * as googleMaps from 'google-maps'
 import store from '../store'
 
-console.log('ENV: ' + JSON.stringify(process.env))
 const mapIcon = require('../assets/unicorn-16x16.png')
-const secrets = require('../secrets.json')
-const key = (process.env.NODE_ENV === 'development') ? secrets.dev.mapsApiKey : secrets.prod.mapsApiKey
+const key = process.env.VUE_APP_GOOGLE_MAPS_API_KEY
 const loader = new googleMaps.Loader(key, {})
 
 export default {
@@ -24,14 +22,13 @@ export default {
   watch: {
     dataStore: {
       deep: true,
-      handler (val) {
-        // this.appMap.setCenter(this.mapCenter)
-        this.mapMarker.setPosition(this.mapCenter)
+      handler () {
+        this.mapMarker.setPosition(this.mapLocation)
       }
     }
   },
   computed: {
-    mapCenter: function () {
+    mapLocation: function () {
       return { lat: this.latitudeFloat, lng: this.longitudeFloat }
     },
     latitudeFloat: function () {
@@ -47,7 +44,7 @@ export default {
     loader.load().then((google) => {
       this.appMap = new google.maps.Map(document.getElementById('map'), {
         zoom: 8,
-        center: this.mapCenter,
+        center: this.mapLocation,
         fullscreenControl: false,
         streetViewControl: false,
         mapTypeControl: true,
@@ -61,7 +58,7 @@ export default {
         }
       })
       this.mapMarker = new google.maps.Marker({
-        position: this.mapCenter,
+        position: this.mapLocation,
         map: this.appMap,
         title: "I'm a Unicorn!",
         icon: mapIcon

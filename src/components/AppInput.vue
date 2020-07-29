@@ -10,7 +10,7 @@
       <ul>
         <li>Enter a latitude and longitude manually or by clicking on the map.</li>
         <li>Pick a date with the date picker.</li>
-        <li>Results from <a href="https://sunrise-sunset.org/api">sunrise-sunset.org</a>
+        <li>Results from <a href="https://sunrise-sunset.org/api" target="_blank">sunrise-sunset.org</a>
 <!--        <li>Info on <a href="https://en.wikipedia.org/wiki/Twilight">civil, nautical, and astronomical twilights</a>.</li>-->
         <li>All time are currently in UTC.</li>
       </ul>
@@ -45,7 +45,7 @@ export default {
   watch: {
     dataStore: {
       deep: true,
-      handler (val) {
+      handler () {
         this.lat = store.state.latLng.lat
         this.lng = store.state.latLng.lng
       }
