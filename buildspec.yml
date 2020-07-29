@@ -1,7 +1,7 @@
 version: 0.1
 
 phases:
-  prebuild:
+  pre_build:
     commands:
        - printenv > .env
        - cat .env
