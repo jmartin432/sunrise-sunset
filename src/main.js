@@ -5,6 +5,7 @@ import App from './App'
 import Router from './router'
 
 Vue.config.productionTip = false
+// comment
 Vue.component('AppInput')
 Vue.component('AppResults')
 Vue.component('AppMap')
