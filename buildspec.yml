@@ -1,5 +1,9 @@
 version: 0.1
 
+env:
+  secrets-manager:
+    key: google-maps-api:key
+
 phases:
   pre_build:
     commands:
