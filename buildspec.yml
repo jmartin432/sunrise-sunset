@@ -5,11 +5,13 @@ env:
     VUE_APP_GOOGLE_MAPS_API_KEY: google-maps-api:key
 
 phases:
+  install:
+    runtime-versions:
+      nodejs: 10
   pre_build:
     commands:
        - printenv > .env
        - cat .env
-
   build:
     commands:
       - npm install

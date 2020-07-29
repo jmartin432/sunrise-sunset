@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router/index'
+import Router from './router/index'
 
 Vue.config.productionTip = false
 Vue.component('AppInput')
@@ -11,7 +11,7 @@ Vue.component('AppMap')
 
 new Vue({ // eslint-disable-line no-new
   el: '#app',
-  router,
+  Router,
   components: { App },
   template: '<App/>'
 })
