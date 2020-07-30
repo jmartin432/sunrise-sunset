@@ -6,7 +6,7 @@ env:
 phases:
   pre_build:
     commands:
-       - echo "VUE_APP_GOOGLE_MAPS_API_KEY=test${VUE_APP_GOOGLE_MAPS_API_KEY}" > .env
+       - echo "VUE_APP_GOOGLE_MAPS_API_KEY=${VUE_APP_GOOGLE_MAPS_API_KEY}" > .env
        - cat .env
   build:
     commands:
@@ -18,3 +18,4 @@ artifacts:
     - dist/favicon.ico
     - dist/css/*
     - dist/js/*
+    - .env
