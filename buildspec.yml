@@ -1,9 +1,5 @@
 version: 0.1
 
-#env:
-#  secrets-manager:
-#    VUE_APP_GOOGLE_MAPS_API_KEY: google-maps-api:key
-
 phases:
   pre_build:
     commands:
