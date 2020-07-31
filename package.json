@@ -6,7 +6,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "ws": "ws -d dist/"
+    "ws": "ws -d dist/",
+    "dev-deploy": "aws lambda invoke --function-name static-sites-pipeline-deploy-lambda --invocation-type Event --cli-binary-format raw-in-base64-out --payload '{ \"app-name\": \"sunrise-sunset\", \"environment\": \"dev\" }' response.json",
+    "prod-deploy": "aws lambda invoke --function-name static-sites-pipeline-deploy-lambda --invocation-type Event --cli-binary-format raw-in-base64-out --payload '{ \"app-name\": \"sunrise-sunset\", \"environment\": \"prod\" }' response.json"
   },
   "dependencies": {
     "core-js": "3.6.5",
