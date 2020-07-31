@@ -1,6 +1,6 @@
 module.exports = {
     runtimeCompiler: true,
-    publicPath: '/sunrise-sunset/',
+    // publicPath: '/sunrise-sunset/',
     pwa: {
         name: 'Sunrise Sunset',
         iconPaths: {
