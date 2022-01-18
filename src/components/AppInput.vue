@@ -127,6 +127,9 @@ export default {
   margin: 20px;
   background-color: rgba(30, 30, 30, 0.8);
 }
+#input a{
+  color: lightyellow;
+}
 #fields{
   margin: 10px;
 }
