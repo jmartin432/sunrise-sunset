@@ -8,6 +8,7 @@ import store from '../store'
 
 const mapIcon = require('../assets/unicorn-16x16.png')
 const key = process.env.VUE_APP_GOOGLE_MAPS_API_KEY
+console.log(key)
 const loader = new googleMaps.Loader(key, {})
 
 export default {
